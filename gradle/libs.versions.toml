@@ -1,0 +1,30 @@
+[versions]
+composeBom            = "2024.05.00"
+composeRules          = "0.3.13"
+koin                  = "3.5.3"
+material3             = "1.2.1"
+navigationCompose     = "2.7.7"
+
+androidApplication      = "8.4.0"
+detekt                  = "1.23.6"
+jetbrainsKotlinAndroid  = "1.9.22"
+jlleitschuhGradleKtlint = "12.1.0"
+
+[libraries]
+compose-bom 			= { group = "androidx.compose",           name = "compose-bom", 			version.ref = "composeBom" }
+material3   			= { group = "androidx.compose.material3", name = "material3", 				version.ref = "material3" }
+ui-tooling-preview 	    = { group = "androidx.compose.ui",        name = "ui-tooling-preview" }
+ui-tooling  			= { group = "androidx.compose.ui",        name = "ui-tooling" }
+navigation-compose 	    = { group = "androidx.navigation",        name = "navigation-compose", 		version.ref = "navigationCompose" }
+koin-androidx-compose   = { group = "io.insert-koin",             name = "koin-androidx-compose", 	version.ref = "koin" }
+compose-rules           = { group = "io.nlopez.compose.rules",    name = "detekt",                  version.ref = "composeRules" }
+
+[bundles]
+compose      = ["material3", "navigation-compose"]
+ui-tooling   = ["ui-tooling-preview", "ui-tooling"]
+
+[plugins]
+android-application 	  = { id = "com.android.application", 		version.ref = "androidApplication" }
+detekt                    = { id = "io.gitlab.arturbosch.detekt",   version.ref = "detekt" }
+jetbrains-kotlin-android  = { id = "org.jetbrains.kotlin.android", 	version.ref = "jetbrainsKotlinAndroid" }
+jlleitschuh-gradle-ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "jlleitschuhGradleKtlint" }
