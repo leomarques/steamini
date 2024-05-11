@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.detekt)
@@ -20,6 +22,18 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        val properties = Properties()
+        val localPropertiesFile = project.rootProject.file("local.properties")
+        if (localPropertiesFile.exists()) {
+            properties.load(localPropertiesFile.inputStream())
+        }
+        val geminiApiKey = properties.getProperty("GEMINI_API_KEY") ?: ""
+        val steamApiKey = properties.getProperty("STEAM_API_KEY") ?: ""
+        val steamUserId = properties.getProperty("STEAM_USER_ID") ?: ""
+        buildConfigField("String", "GEMINI_API_KEY", "\"$geminiApiKey\"")
+        buildConfigField("String", "STEAM_API_KEY", "\"$steamApiKey\"")
+        buildConfigField("String", "STEAM_USER_ID", "\"$steamUserId\"")
     }
 
     buildTypes {
@@ -55,8 +69,9 @@ dependencies {
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)
     implementation(libs.generativeai)
+    implementation(libs.gson)
+    implementation(libs.okhttp)
     implementation(libs.koin.androidx.compose)
     debugImplementation(libs.bundles.ui.tooling)
     detektPlugins(libs.compose.rules)
-
 }
