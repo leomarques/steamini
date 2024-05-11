@@ -54,7 +54,9 @@ android {
 dependencies {
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)
+    implementation(libs.generativeai)
     implementation(libs.koin.androidx.compose)
     debugImplementation(libs.bundles.ui.tooling)
     detektPlugins(libs.compose.rules)
+
 }

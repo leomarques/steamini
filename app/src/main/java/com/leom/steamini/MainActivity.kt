@@ -18,10 +18,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             SteaminiTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    HomeScreen(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
@@ -29,10 +26,10 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun HomeScreen(modifier: Modifier = Modifier) {
     Text(
-        text = "Hello $name!",
-        modifier = modifier
+        modifier = modifier,
+        text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     )
 }
 
@@ -40,6 +37,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     SteaminiTheme {
-        Greeting("Android")
+        HomeScreen()
     }
 }

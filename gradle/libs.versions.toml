@@ -1,6 +1,7 @@
 [versions]
 composeBom            = "2024.05.00"
 composeRules          = "0.3.13"
+generativeai          = "0.5.0"
 koin                  = "3.5.3"
 material3             = "1.2.1"
 navigationCompose     = "2.7.7"
@@ -16,6 +17,7 @@ material3   			= { group = "androidx.compose.material3", name = "material3", 			
 ui-tooling-preview 	    = { group = "androidx.compose.ui",        name = "ui-tooling-preview" }
 ui-tooling  			= { group = "androidx.compose.ui",        name = "ui-tooling" }
 navigation-compose 	    = { group = "androidx.navigation",        name = "navigation-compose", 		version.ref = "navigationCompose" }
+generativeai            = { module = "com.google.ai.client.generativeai:generativeai",              version.ref = "generativeai" }
 koin-androidx-compose   = { group = "io.insert-koin",             name = "koin-androidx-compose", 	version.ref = "koin" }
 compose-rules           = { group = "io.nlopez.compose.rules",    name = "detekt",                  version.ref = "composeRules" }
 
