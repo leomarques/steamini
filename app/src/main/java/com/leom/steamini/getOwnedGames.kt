@@ -5,10 +5,8 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.io.IOException
 
-fun getBestGames(): List<String> {
+fun getBestGames(steamUserId: String): List<String> {
     val steamApiKey = BuildConfig.STEAM_API_KEY
-    val steamUserId = BuildConfig.STEAM_USER_ID
-
     val url =
         "https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/" +
             "?key=$steamApiKey" +
@@ -31,7 +29,9 @@ fun getBestGames(): List<String> {
     val gson = Gson()
 
     val responseObject = gson.fromJson(responseBody, SteamResponse::class.java)
-    return responseObject.response.games.associate { it.name to it.playtimeForever }
+
+    return responseObject.response.games
+        .associate { it.name to it.playtimeForever }
         .toList()
         .sortedByDescending { it.second }
         .take(10)

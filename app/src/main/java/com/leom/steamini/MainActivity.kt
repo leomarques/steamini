@@ -1,24 +1,23 @@
 package com.leom.steamini
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
+import androidx.compose.ui.Modifier
+import com.leom.steamini.ui.theme.SteaminiTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        lifecycleScope.launch {
-            withContext(Dispatchers.IO) {
-                val games = getBestGames()
-                Log.d("gemini", "Games: ${games.joinToString(separator = "\n")}")
-
-                val response = sendToGemini(games)
-                Log.d("gemini", response ?: "No response")
+        setContent {
+            SteaminiTheme {
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    HomeScreen(modifier = Modifier.padding(innerPadding))
+                }
             }
         }
     }

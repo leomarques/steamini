@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Steamini</string>
+    <string name="description">Steamini is an app that analyzes your Steam profile and recommends games based on your preferences.\n\nEnter your Steam ID below and click</string>
+    <string name="steam_id">Steam ID</string>
+    <string name="send">Recommend me games!</string>
 </resources>
