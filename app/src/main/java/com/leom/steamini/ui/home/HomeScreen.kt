@@ -1,4 +1,4 @@
-package com.leom.steamini
+package com.leom.steamini.ui.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -20,17 +20,21 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.leom.steamini.R
+import com.leom.steamini.ui.StateTextField
 
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
     val viewModel: HomeViewModel = viewModel()
     val uiState by viewModel.uiState.collectAsState()
 
+    val keyboardController = LocalSoftwareKeyboardController.current
     val scrollState = rememberLazyListState()
 
     LazyColumn(
@@ -59,7 +63,10 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             item {
                 Button(
                     modifier = Modifier.padding(bottom = 16.dp),
-                    onClick = { viewModel.onSendToGemini() },
+                    onClick = {
+                        keyboardController?.hide()
+                        viewModel.onSendToGemini()
+                    },
                 ) {
                     Text(stringResource(R.string.send))
                 }
@@ -76,17 +83,19 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             item {
                 Text(text = "These are your most played games:")
                 Surface(
-                    modifier = Modifier
-                        .clip(RoundedCornerShape(16.dp))
-                        .background(MaterialTheme.colorScheme.tertiaryContainer)
-                        .padding(8.dp)
+                    modifier =
+                        Modifier
+                            .clip(RoundedCornerShape(16.dp))
+                            .background(MaterialTheme.colorScheme.tertiaryContainer)
+                            .padding(8.dp),
                 ) {
                     Text(
                         modifier = Modifier.background(MaterialTheme.colorScheme.tertiaryContainer),
-                        text = uiState.games.joinToString(
-                            separator = ", ",
-                        ),
-                        color = MaterialTheme.colorScheme.onTertiaryContainer
+                        text =
+                            uiState.games.joinToString(
+                                separator = ", ",
+                            ),
+                        color = MaterialTheme.colorScheme.onTertiaryContainer,
                     )
                 }
 
@@ -96,20 +105,22 @@ fun HomeScreen(modifier: Modifier = Modifier) {
 
         if (uiState.showWait) {
             item {
-                Column (
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clip(RoundedCornerShape(16.dp))
-                        .background(MaterialTheme.colorScheme.tertiaryContainer)
-                        .padding(8.dp),
+                Column(
+                    modifier =
+                        Modifier
+                            .fillMaxWidth()
+                            .clip(RoundedCornerShape(16.dp))
+                            .background(MaterialTheme.colorScheme.tertiaryContainer)
+                            .padding(8.dp),
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Text(
-                        modifier = Modifier
-                            .background(MaterialTheme.colorScheme.tertiaryContainer)
-                            .padding(bottom = 16.dp),
+                        modifier =
+                            Modifier
+                                .background(MaterialTheme.colorScheme.tertiaryContainer)
+                                .padding(bottom = 16.dp),
                         text = "Now wait while we search for some recommendations...",
-                        color = MaterialTheme.colorScheme.onTertiaryContainer
+                        color = MaterialTheme.colorScheme.onTertiaryContainer,
                     )
 
                     CircularProgressIndicator()
@@ -120,17 +131,19 @@ fun HomeScreen(modifier: Modifier = Modifier) {
         if (uiState.error.isNotEmpty()) {
             item {
                 Surface(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clip(RoundedCornerShape(16.dp))
-                        .background(MaterialTheme.colorScheme.tertiaryContainer)
-                        .padding(8.dp)
+                    modifier =
+                        Modifier
+                            .fillMaxWidth()
+                            .clip(RoundedCornerShape(16.dp))
+                            .background(MaterialTheme.colorScheme.tertiaryContainer)
+                            .padding(8.dp),
                 ) {
                     Text(
-                        modifier = Modifier
-                            .background(MaterialTheme.colorScheme.tertiaryContainer),
+                        modifier =
+                            Modifier
+                                .background(MaterialTheme.colorScheme.tertiaryContainer),
                         text = "An error occurred: ${uiState.error}",
-                        color = MaterialTheme.colorScheme.onTertiaryContainer
+                        color = MaterialTheme.colorScheme.onTertiaryContainer,
                     )
                 }
 
@@ -140,19 +153,21 @@ fun HomeScreen(modifier: Modifier = Modifier) {
 
         if (uiState.showGeminiResponse) {
             item {
-                Text(text ="Here are some recommendations for you:")
+                Text(text = "Here are some recommendations for you:")
                 Surface(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .clip(RoundedCornerShape(16.dp))
-                        .background(MaterialTheme.colorScheme.tertiaryContainer)
-                        .padding(8.dp)
+                    modifier =
+                        Modifier
+                            .fillMaxWidth()
+                            .clip(RoundedCornerShape(16.dp))
+                            .background(MaterialTheme.colorScheme.tertiaryContainer)
+                            .padding(8.dp),
                 ) {
                     Text(
-                        modifier = Modifier
-                            .background(MaterialTheme.colorScheme.tertiaryContainer),
+                        modifier =
+                            Modifier
+                                .background(MaterialTheme.colorScheme.tertiaryContainer),
                         text = uiState.geminiResponse,
-                        color = MaterialTheme.colorScheme.onTertiaryContainer
+                        color = MaterialTheme.colorScheme.onTertiaryContainer,
                     )
                 }
 

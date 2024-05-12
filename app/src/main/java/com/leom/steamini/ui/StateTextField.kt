@@ -1,4 +1,4 @@
-package com.leom.steamini
+package com.leom.steamini.ui
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardActions

@@ -1,4 +1,4 @@
-package com.leom.steamini
+package com.leom.steamini.data
 
 import com.google.gson.annotations.SerializedName
 

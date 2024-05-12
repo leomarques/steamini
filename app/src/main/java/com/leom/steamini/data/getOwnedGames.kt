@@ -1,6 +1,7 @@
-package com.leom.steamini
+package com.leom.steamini.data
 
 import com.google.gson.Gson
+import com.leom.steamini.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.io.IOException

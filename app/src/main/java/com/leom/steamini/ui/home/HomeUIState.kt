@@ -1,7 +1,7 @@
-package com.leom.steamini
+package com.leom.steamini.ui.home
 
 data class HomeUIState(
-    val steamId: String = "",
+    val steamId: String = "76561198022113591",
     val games: List<String> = emptyList(),
     val showMostPlayed: Boolean = false,
     val showButton: Boolean = true,

@@ -1,7 +1,8 @@
-package com.leom.steamini
+package com.leom.steamini.data
 
 import com.google.ai.client.generativeai.GenerativeModel
 import com.google.ai.client.generativeai.type.generationConfig
+import com.leom.steamini.BuildConfig
 
 suspend fun sendToGemini(games: List<String>): String? {
     val generativeModel =

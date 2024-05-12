@@ -71,7 +71,6 @@ dependencies {
     implementation(libs.generativeai)
     implementation(libs.gson)
     implementation(libs.okhttp)
-    implementation(libs.koin.androidx.compose)
     debugImplementation(libs.bundles.ui.tooling)
     detektPlugins(libs.compose.rules)
 }
