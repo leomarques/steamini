@@ -1,4 +1,4 @@
-# Moneylog
+# Steamini
 Steamini is an Android app to get game recommendations based on your most played games on Steam.<br>
 
 ## Setup
