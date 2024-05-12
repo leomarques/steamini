@@ -23,6 +23,9 @@ You need the **64 bit Steam ID** of a user, put it on the text field and click t
 ### *How do I get a user's ID?*
 Go to a user's profile page on Steam and copy the URL, then go to [this site](https://profile.tf/) and paste it there, it will show you that user's 64 bit Steam ID.
 
+# Screenshot
+![Screenshot_20240512_011050](https://github.com/leomarques/steamini/assets/1104925/6ae8066a-1498-49fc-a54d-783d0887f5d8)
+
 ## License
 
 This application is released under MIT license (see [LICENSE](LICENSE)).<br>
