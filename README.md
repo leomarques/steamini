@@ -1,5 +1,5 @@
 # Steamini
-Steamini is an Android app to get game recommendations based on your most played games on Steam.<br>
+Steamini is an Android app to get game recommendations based on your most played games on Steam, using Google's Gemini AI.<br>
 
 ## Setup
 **You need to provide your own API keys**, you will need a Steam API key and a Gemini API key.
