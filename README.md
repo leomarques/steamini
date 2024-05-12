@@ -5,13 +5,13 @@ Steamini is an Android app to get game recommendations based on your most played
 **You need to provide your own API keys**, you will need a Steam API key and a Gemini API key.
 
 ### *Why is that?*
-API keys are personal and should not be shared, this is the only way for the app to work without a dedicated server-side.
+Since API keys are personal and should not be shared, this is the only way the app works without a dedicated server-side.
 
 ### *How do I get the API keys?*
 You can get a Steam API key [here](https://steamcommunity.com/dev/apikey) and a Gemini API key [here](https://ai.google.dev/gemini-api/docs/api-key), both are free and very quick to obtain.
 
 ### *Where do I put them?*
-In the `local.properties` file, like this:
+In the `local.properties` file located on project root (not versioned), like this:
 ```
 GEMINI_API_KEY=YOUR_KEY_HERE
 STEAM_API_KEY=YOUR_KEY_HERE
