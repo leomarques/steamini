@@ -28,6 +28,7 @@ class HomeViewModel : ViewModel() {
             withContext(Dispatchers.IO) {
                 try {
                     val games = getBestGames(uiState.value.steamId)
+
                     _uiState.value =
                         uiState.value.copy(
                             games = games,
@@ -49,13 +50,15 @@ class HomeViewModel : ViewModel() {
                             error = e.message ?: "Error",
                             showButton = true,
                             showSteamLoading = false,
+                            showMostPlayed = false,
+                            showWait = false,
                         )
                 }
             }
         }
     }
 
-    fun onValueChange(id: String) {
+    fun onSteamIdChange(id: String) {
         _uiState.value = uiState.value.copy(steamId = id)
     }
 }

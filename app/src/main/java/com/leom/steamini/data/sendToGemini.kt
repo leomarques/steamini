@@ -21,6 +21,7 @@ suspend fun sendToGemini(games: List<String>): String? {
                 ", ",
             )
         }, explain why you chose each one"
+
     val response = generativeModel.generateContent(prompt)
 
     return response.text

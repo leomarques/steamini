@@ -27,9 +27,8 @@ fun getBestGames(steamUserId: String): List<String> {
     }
 
     val responseBody = response.body!!.string()
-    val gson = Gson()
 
-    val responseObject = gson.fromJson(responseBody, SteamResponse::class.java)
+    val responseObject = Gson().fromJson(responseBody, SteamResponse::class.java)
 
     return responseObject.response.games
         .associate { it.name to it.playtimeForever }
