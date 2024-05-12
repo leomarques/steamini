@@ -10,11 +10,16 @@ fun getBestGames(): List<String> {
     val steamUserId = BuildConfig.STEAM_USER_ID
 
     val url =
-        "https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=$steamApiKey&steamid=$steamUserId&include_appinfo=true&format=json"
+        "https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/" +
+            "?key=$steamApiKey" +
+            "&steamid=$steamUserId" +
+            "&include_appinfo=true" +
+            "&format=json"
 
-    val request = Request.Builder()
-        .url(url)
-        .build()
+    val request =
+        Request.Builder()
+            .url(url)
+            .build()
 
     val response = OkHttpClient().newCall(request).execute()
 
